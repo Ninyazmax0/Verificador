@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar acceso - Paso 1 de 5</title>
+    <meta name="description" content="Verifica que eres humano para continuar">
+    <meta name='admaven-placement' content='BqTYErjn8'>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- AdMaven Popunder (se carga en background) -->
+    <script type="text/javascript">
+        (function(){
+            var w = window;
+            if (w.AdnPop) return;
+            var n = w.AdnPop = function(){
+                n.queue.push(arguments);
+            };
+            n.queue = [];
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://static.astartraffic.com/loaderPop.js';
+            document.head.appendChild(s);
+        })();
+        AdnPop('init', 'YOUR_ADMaven_TAG_ID');
+    </script>
+
+    <!-- Banner superior -->
+    <div class="top-banner">
+        <div class="banner-content">
+            <span class="banner-text">Contenido exclusivo disponible</span>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        
+        <!-- Barra lateral izquierda - ads -->
+        <aside class="sidebar sidebar-left">
+            <div class="ad-slot ad-sidebar">
+                <div class="ad-placeholder">Publicidad</div>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="content">
+            
+            <!-- Artículo señuelo -->
+            <article class="article">
+                
+                <div class="article-header">
+                    <h1 class="article-title">Accede al contenido premium</h1>
+                    <div class="article-meta">
+                        <span class="read-time">Tiempo de verificación: 2 minutos</span>
+                    </div>
+                </div>
+
+                <!-- Ad banner contenido -->
+                <div class="ad-slot ad-content-top">
+                    <div class="ad-placeholder">Publicidad</div>
+                </div>
+
+                <!-- Sección de verificación -->
+                <div class="verify-container" id="verifyContainer">
+                    
+                    <!-- Paso actual -->
+                    <div class="step-indicator">
+                        <span class="step-label" id="stepLabel">Paso 1 de 5</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Timer -->
+                    <div class="timer-container" id="timerContainer">
+                        <div class="timer-circle">
+                            <svg class="timer-svg" viewBox="0 0 100 100">
+                                <circle class="timer-bg" cx="50" cy="50" r="45"/>
+                                <circle class="timer-progress" id="timerProgress" cx="50" cy="50" r="45"/>
+                            </svg>
+                            <span class="timer-text" id="timerText">10</span>
+                        </div>
+                        <p class="timer-instruction"><span class="step-icon">👆</span> Haz clic en el anuncio de arriba y mantente en la página</p>
+                    </div>
+
+                    <!-- Botón verificar -->
+                    <div class="verify-button-container" id="verifyButtonContainer">
+                        <button class="verify-button" id="verifyButton" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4"></path>
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                            <span id="buttonText">Esperando...</span>
+                        </button>
+                    </div>
+
+                    <!-- Ad entre pasos -->
+                    <div class="ad-slot ad-inline">
+                        <div class="ad-placeholder">Publicidad</div>
+                    </div>
+
+                </div>
+
+                <!-- Contenido del artículo (falso) -->
+                <div class="article-body">
+                    <p>Para acceder al contenido que solicitaste, es necesario completar una breve verificación de seguridad. Esto nos ayuda a proteger el contenido y asegurar que solo usuarios autorizados puedan acceder.</p>
+                    
+                    <p>El proceso es rápido y sencillo. Solo necesitas completar los pasos de verificación que aparecen en pantalla. Una vez que termines, serás redirigido automáticamente al contenido.</p>
+
+                    <div class="info-box">
+                        <strong>¿Por qué verificación?</strong>
+                        <p>Este sistema protege el contenido contra bots y acceso no autorizado. Tu seguridad es nuestra prioridad.</p>
+                    </div>
+                </div>
+
+                <!-- Ad banner inferior -->
+                <div class="ad-slot ad-content-bottom">
+                    <div class="ad-placeholder">Publicidad</div>
+                </div>
+
+            </article>
+
+        </main>
+
+        <!-- Barra lateral derecha - ads -->
+        <aside class="sidebar sidebar-right">
+            <div class="ad-slot ad-sidebar">
+                <div class="ad-placeholder">Publicidad</div>
+            </div>
+            <div class="ad-slot ad-sidebar">
+                <div class="ad-placeholder">Publicidad</div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

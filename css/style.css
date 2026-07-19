@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Banner superior */
+.top-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 12px 20px;
+    text-align: center;
+}
+
+.banner-text {
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Sidebars */
+.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.ad-slot {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.ad-sidebar {
+    min-height: 600px;
+}
+
+.ad-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 250px;
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Contenido */
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Artículo */
+.article {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.article-header {
+    padding: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.article-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.article-meta {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Ads en contenido */
+.ad-content-top,
+.ad-content-bottom {
+    margin: 20px 30px;
+}
+
+.ad-inline {
+    margin: 20px 0;
+}
+
+.ad-content-top .ad-placeholder,
+.ad-content-bottom .ad-placeholder {
+    min-height: 250px;
+}
+
+.ad-inline .ad-placeholder {
+    min-height: 90px;
+}
+
+/* Verificación */
+.verify-container {
+    padding: 30px;
+    background: linear-gradient(180deg, #f8f9fa 0%, white 100%);
+}
+
+.step-indicator {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.step-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 20%;
+    transition: width 0.5s ease;
+    border-radius: 4px;
+}
+
+/* Timer */
+.timer-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.timer-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+}
+
+.timer-svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.timer-bg {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 8;
+}
+
+.timer-progress {
+    fill: none;
+    stroke: #667eea;
+    stroke-width: 8;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+}
+
+.timer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+}
+
+.timer-instruction {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.step-icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Botón verificar */
+.verify-button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.verify-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.verify-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.verify-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.verify-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Artículo body */
+.article-body {
+    padding: 30px;
+    border-top: 1px solid #eee;
+}
+
+.article-body p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.info-box {
+    background: #f0f4ff;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 20px;
+}
+
+.info-box strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.info-box p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer p {
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 10px;
+    }
+    
+    .article-header {
+        padding: 20px;
+    }
+    
+    .article-title {
+        font-size: 22px;
+    }
+    
+    .verify-container {
+        padding: 20px;
+    }
+    
+    .timer-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .timer-text {
+        font-size: 28px;
+    }
+    
+    .verify-button {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+/* Estado completado */
+.completed {
+    text-align: center;
+    padding: 40px;
+}
+
+.completed-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.completed-icon svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.completed h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.completed p {
+    color: #666;
+}
