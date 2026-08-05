@@ -17,9 +17,12 @@ var STEPS = [
 // Estado
 var currentStep = 0;
 var timerInterval = null;
+var timeLeft = 10;
 var stepCompleted = false;
 var adOpened = false;
 var adOpenTime = 0;
+var waitingForAd = false;
+var circumference = 2 * Math.PI * 45;
 
 // DOM
 var stepLabel = document.getElementById('stepLabel');
@@ -41,38 +44,41 @@ function init() {
 }
 
 function setupListeners() {
-    // Cuando el usuario vuelve a la pestana
+    // Cuando el usuario vuelve a la pestana de verificacion
     document.addEventListener('visibilitychange', function () {
-        if (!adOpened || stepCompleted) return;
-        if (document.hidden) return; // solo cuando vuelve a visible
+        if (stepCompleted || !waitingForAd) return;
+        if (document.hidden) return;
 
+        // El usuario volvio - verificar tiempo
         var elapsed = Math.floor((Date.now() - adOpenTime) / 1000);
 
         if (elapsed >= CONFIG.adTimeRequired) {
             adStatus.textContent = 'Verificado (' + elapsed + 's)';
             adStatus.style.color = '#00b894';
             adImage.style.opacity = '0.6';
-            adImage.style.pointerEvents = 'none';
             adLink.style.pointerEvents = 'none';
+            waitingForAd = false;
             stepCompleted = true;
-            if (timerInterval) clearInterval(timerInterval);
+            document.title = STEPS[currentStep].title + ' - Continuar';
             verifyButton.disabled = false;
             buttonText.textContent = 'Continuar';
             timerText.textContent = '0';
-            timerProgress.style.strokeDashoffset = 2 * Math.PI * 45;
+            timerProgress.style.strokeDashoffset = circumference;
         } else {
             var falta = CONFIG.adTimeRequired - elapsed;
             adStatus.textContent = 'Faltan ' + falta + ' segundos... vuelve al anuncio';
             adStatus.style.color = '#e17055';
-            // Resetear para que pueda volver a intentar
+            waitingForAd = false;
             adOpened = false;
+            // Reanudar timer
+            resumeTimer();
         }
     });
 
     // Click en el anuncio visual
     adLink.addEventListener('click', function (e) {
         e.preventDefault();
-        if (stepCompleted) return;
+        if (stepCompleted || waitingForAd) return;
 
         var win = window.open(CONFIG.adUrl, '_blank');
         if (!win) {
@@ -83,17 +89,40 @@ function setupListeners() {
 
         adOpened = true;
         adOpenTime = Date.now();
+        waitingForAd = true;
         adStatus.textContent = 'Espera ' + CONFIG.adTimeRequired + ' segundos en el anuncio...';
         adStatus.style.color = '#6c757d';
         adImage.style.opacity = '1';
 
+        // Pausar timer
         if (timerInterval) clearInterval(timerInterval);
         verifyButton.disabled = true;
-        buttonText.textContent = 'Esperando...';
-        timerText.textContent = CONFIG.adTimeRequired;
+        buttonText.textContent = 'Esperando en el anuncio...';
     });
 
     verifyButton.addEventListener('click', handleVerify);
+}
+
+function resumeTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    var step = STEPS[currentStep];
+
+    timerInterval = setInterval(function () {
+        timeLeft--;
+        timerText.textContent = timeLeft > 0 ? timeLeft : '0';
+        document.title = 'Te quedan ' + timeLeft + ' segundos...';
+
+        var progress = (step.time - timeLeft) / step.time;
+        timerProgress.style.strokeDashoffset = circumference * progress;
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            document.title = STEPS[currentStep].title + ' - Continuar';
+            stepCompleted = true;
+            verifyButton.disabled = false;
+            buttonText.textContent = 'Continuar';
+        }
+    }, 1000);
 }
 
 function getRandomImage() {
@@ -110,17 +139,18 @@ function updateUI() {
     adStatus.textContent = 'Haz clic en la imagen de arriba';
     adStatus.style.color = '#6c757d';
     adImage.style.opacity = '1';
-    adImage.style.pointerEvents = 'auto';
     adLink.style.pointerEvents = 'auto';
 }
 
 function startStep() {
+    var step = STEPS[currentStep];
     stepCompleted = false;
     adOpened = false;
     adOpenTime = 0;
-    timerText.textContent = STEPS[currentStep].time;
+    waitingForAd = false;
+    timeLeft = step.time;
+    timerText.textContent = timeLeft;
 
-    var circumference = 2 * Math.PI * 45;
     timerProgress.style.strokeDasharray = circumference;
     timerProgress.style.strokeDashoffset = 0;
 
@@ -128,6 +158,9 @@ function startStep() {
     buttonText.textContent = 'Esperando...';
 
     if (timerInterval) clearInterval(timerInterval);
+
+    // Timer que avanza siempre
+    resumeTimer();
 
     // Cargar ad AdMaven de este paso
     if (typeof window.loadStepAds === 'function') {
