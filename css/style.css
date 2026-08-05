@@ -223,6 +223,55 @@ body {
     color: #555;
 }
 
+/* Anuncio visual */
+.visual-ad {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.visual-ad-label {
+    display: block;
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.visual-ad a {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.visual-ad a:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.visual-ad img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+.visual-ad-status {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #667eea;
+    font-weight: 500;
+    min-height: 20px;
+}
+
 /* Footer */
 .footer {
     background: #1a1a1a;
