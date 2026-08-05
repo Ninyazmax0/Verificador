@@ -9,17 +9,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- AdMaven Popunder -->
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1510456"></script>
-
-    <!-- AdMaven Interstitial -->
-    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1510531"></script>
-
+    <!-- Cargador de anuncios AdMaven (arregla el bloqueo por MIME type) -->
+    <script src="js/ads.js"></script>
     <!-- AdMaven Anti AdBlock -->
     <script src="js/adblock.js"></script>
-
+</head>
+<body>
     <!-- Banner superior -->
     <div class="top-banner">
         <div class="banner-content">
@@ -29,36 +24,19 @@
 
     <!-- Contenedor principal -->
     <div class="main-container">
-        
-        <!-- Barra lateral izquierda - ads -->
-        <aside class="sidebar sidebar-left">
-            <div class="ad-slot ad-sidebar">
-                <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1510536"></script>
-            </div>
-        </aside>
-
-        <!-- Contenido principal -->
         <main class="content">
-            
-            <!-- Artículo señuelo -->
             <article class="article">
-                
+
                 <div class="article-header">
                     <h1 class="article-title">Accede al contenido premium</h1>
                     <div class="article-meta">
-                        <span class="read-time">Tiempo de verificación: 2 minutos</span>
+                        <span class="read-time">Tiempo de verificación: 1 minuto</span>
                     </div>
-                </div>
-
-                <!-- Ad banner contenido -->
-                <div class="ad-slot ad-content-top">
-                    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1510536"></script>
                 </div>
 
                 <!-- Sección de verificación -->
                 <div class="verify-container" id="verifyContainer">
-                    
-                    <!-- Paso actual -->
+
                     <div class="step-indicator">
                         <span class="step-label" id="stepLabel">Paso 1 de 5</span>
                         <div class="progress-bar">
@@ -66,7 +44,6 @@
                         </div>
                     </div>
 
-                    <!-- Timer -->
                     <div class="timer-container" id="timerContainer">
                         <div class="timer-circle">
                             <svg class="timer-svg" viewBox="0 0 100 100">
@@ -75,10 +52,9 @@
                             </svg>
                             <span class="timer-text" id="timerText">10</span>
                         </div>
-                        <p class="timer-instruction"><span class="step-icon">👆</span> Haz clic en el anuncio de arriba y mantente en la página</p>
+                        <p class="timer-instruction" id="timerInstruction"><span class="step-icon">👆</span> Instrucción</p>
                     </div>
 
-                    <!-- Botón verificar -->
                     <div class="verify-button-container" id="verifyButtonContainer">
                         <button class="verify-button" id="verifyButton" disabled>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -89,18 +65,13 @@
                         </button>
                     </div>
 
-                    <!-- Ad entre pasos -->
-                    <div class="ad-slot ad-inline">
-                        <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1510536"></script>
-                    </div>
-
                 </div>
 
-                <!-- Contenido del artículo (falso) -->
+                <!-- Contenido del artículo -->
                 <div class="article-body">
                     <p>Para acceder al contenido que solicitaste, es necesario completar una breve verificación de seguridad. Esto nos ayuda a proteger el contenido y asegurar que solo usuarios autorizados puedan acceder.</p>
-                    
-                    <p>El proceso es rápido y sencillo. Solo necesitas completar los pasos de verificación que aparecen en pantalla. Una vez que termines, serás redirigido automáticamente al contenido.</p>
+
+                    <p>El proceso es rápido y sencillo. Sigue las instrucciones de cada paso. Cuando termines, serás redirigido automáticamente al contenido.</p>
 
                     <div class="info-box">
                         <strong>¿Por qué verificación?</strong>
@@ -108,25 +79,8 @@
                     </div>
                 </div>
 
-                <!-- Ad banner inferior -->
-                <div class="ad-slot ad-content-bottom">
-                    <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1510536"></script>
-                </div>
-
             </article>
-
         </main>
-
-        <!-- Barra lateral derecha - ads -->
-        <aside class="sidebar sidebar-right">
-            <div class="ad-slot ad-sidebar">
-                <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1510536"></script>
-            </div>
-            <div class="ad-slot ad-sidebar">
-                <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1510536"></script>
-            </div>
-        </aside>
-
     </div>
 
     <!-- Footer -->

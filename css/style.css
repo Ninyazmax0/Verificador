@@ -26,49 +26,9 @@ body {
 
 /* Contenedor principal */
 .main-container {
-    display: flex;
-    max-width: 1400px;
+    max-width: 780px;
     margin: 0 auto;
     padding: 20px;
-    gap: 20px;
-}
-
-/* Sidebars */
-.sidebar {
-    width: 300px;
-    flex-shrink: 0;
-}
-
-.ad-slot {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    min-height: 250px;
-    position: relative;
-}
-
-.ad-sidebar {
-    min-height: 600px;
-}
-
-.ad-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    min-height: 250px;
-    background: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    color: #6c757d;
-    font-size: 14px;
-}
-
-/* Contenido */
-.content {
-    flex: 1;
-    min-width: 0;
 }
 
 /* Artículo */
@@ -94,25 +54,6 @@ body {
 .article-meta {
     color: #666;
     font-size: 14px;
-}
-
-/* Ads en contenido */
-.ad-content-top,
-.ad-content-bottom {
-    margin: 20px 30px;
-}
-
-.ad-inline {
-    margin: 20px 0;
-}
-
-.ad-content-top .ad-placeholder,
-.ad-content-bottom .ad-placeholder {
-    min-height: 250px;
-}
-
-.ad-inline .ad-placeholder {
-    min-height: 90px;
 }
 
 /* Verificación */
@@ -296,12 +237,6 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 1200px) {
-    .sidebar {
-        display: none;
-    }
-}
-
 @media (max-width: 768px) {
     .main-container {
         padding: 10px;
